@@ -37,10 +37,28 @@ rainfall.timeseries <- ts(rainfall,start = c(2012,1),frequency = 12)
 # Print the timeseries data.
 print(rainfall.timeseries)
 
-# Give the chart file a name.
-png(file = "rainfall.png")
 
 # Plot a graph of the time series.
 plot(rainfall.timeseries)
 
-dev.off()
+
+
+
+
+
+hist(mtcars$mpg)
+
+hist(mtcars$mpg, breaks=10, col="green")
+
+
+ 
+## connect to postgres
+#install.packages("RPostgreSQL")
+require("RPostgreSQL")
+#this completes installing packages
+#now start creating connection
+con<-dbConnect(dbDriver("PostgreSQL"), dbname="dbname", host="localhost", port=5432, user="db_user",password="db_password")
+#this completes creating connection
+#get all the tables from connection
+dbListTables(con)
+
