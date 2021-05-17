@@ -62,3 +62,32 @@ con<-dbConnect(dbDriver("PostgreSQL"), dbname="dbname", host="localhost", port=5
 #get all the tables from connection
 dbListTables(con)
 
+
+
+install.packages("httr")
+#Require the package so you can use it
+require("httr")
+#call1 <- "https://stackoverflow.com/questions/6435099/how-to-get-datetime-from-the-internet" 
+call1 <- "http://just-the-time.appspot.com/"
+r <- GET(call1)
+
+#print(test)
+
+status_code(r)
+headers(r)
+
+
+content(r, "text")
+
+
+content(r, "text", encoding = "ISO-8859-1")
+
+
+content(r, "raw")
+
+
+bin <- content(r, "raw")
+writeBin(bin, "myfile.txt")
+
+setwd("C:/Users/OS/Desktop/workspace_2021/r-exam")
+
